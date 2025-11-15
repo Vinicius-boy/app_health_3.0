@@ -9,13 +9,13 @@ from tkinter import messagebox, ttk
 from view_tkinter.menu_tkinter import show_main_menu
 
 def main():
-    # Initialize database (código original mantido)
+    # Initialize database 
     patient_database.init_database()
 
   
 
     
-    # Inicia interface Tkinter
+    # tkinter interface initiation
     show_main_menu()
 
 if __name__ == '__main__':
