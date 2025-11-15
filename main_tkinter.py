@@ -12,12 +12,12 @@ def main():
     # Initialize database (código original mantido)
     patient_database.init_database()
 
-    root = tk.Tk()
+    window = tk.Tk()
 
 
-    root.title("Unesc Saúde")
-    root.geometry("400x400")
-    root.resizable(False, False)
+    window.title("Unesc Saúde")
+    window.geometry("400x400")
+    window.resizable(False, False)
     
     # Inicia interface Tkinter
     show_main_menu()
