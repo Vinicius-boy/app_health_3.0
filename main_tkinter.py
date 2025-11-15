@@ -11,6 +11,13 @@ from view_tkinter.menu_tkinter import show_main_menu
 def main():
     # Initialize database (código original mantido)
     patient_database.init_database()
+
+    root = tk.Tk()
+
+
+    root.title("Unesc Saúde")
+    root.geometry("400x400")
+    root.resizable(False, False)
     
     # Inicia interface Tkinter
     show_main_menu()
