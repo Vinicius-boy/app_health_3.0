@@ -2,7 +2,10 @@
 >>>>>>>   UNESC (UNIVERSITARY CENTER OF ESPIRITO SANTO)
 >>>>>>>   CREATED BY: VINÍCIUS DE SOUZA BOY (STUDENT) 2nd PERIOD
 '''
+import tkinter as tk
+root = tk.Tk()
 
+root.mainloop()
 
 import view.menu as menu
 import patient_database
