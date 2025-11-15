@@ -12,6 +12,8 @@ def main():
     # Initialize database (código original mantido)
     patient_database.init_database()
 
+    root = tk.Tk()
+
 
     root.title("Unesc Saúde")
     root.geometry("400x400")
