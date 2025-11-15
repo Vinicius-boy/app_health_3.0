@@ -5,9 +5,8 @@ from controller.patient_class import Patient
 from datetime import datetime
 
 
-# ============================================================
-#  FUNÇÃO DE DEGRADÊ (FUNCIONANDO)
-# ============================================================
+
+#  FUNÇÃO DE DEGRADÊ 
 
 def create_gradient(frame, color1="#bbdefb", color2="#ffffff"):
     frame.update_idletasks()
@@ -31,9 +30,8 @@ def create_gradient(frame, color1="#bbdefb", color2="#ffffff"):
     canvas.lower('all')
 
 
-# ============================================================
-# ESTILO MODERNO DOS BOTÕES
-# ============================================================
+
+# ESTILO DOS BOTÕES
 
 def setup_styles():
     style = ttk.Style()
@@ -58,9 +56,8 @@ def setup_styles():
                     background="#ffffff")
 
 
-# ============================================================
 #  MENU PRINCIPAL
-# ============================================================
+
 
 class MainMenu:
     def __init__(self):
@@ -116,9 +113,9 @@ class MainMenu:
         self.root.mainloop()
 
 
-# ============================================================
+
 #  CHECK-IN WINDOW
-# ============================================================
+
 
 class CheckInWindow:
     def __init__(self, parent):
@@ -203,9 +200,9 @@ class CheckInWindow:
             messagebox.showerror("Error", str(e))
 
 
-# ============================================================
+
 #  LISTAR PACIENTES
-# ============================================================
+
 
 class ListPatientsWindow:
     def __init__(self, parent):
@@ -255,9 +252,9 @@ class ListPatientsWindow:
                              values=(p.id, p.name, p.birthdate.strftime("%m/%d/%Y"), p.gender))
 
 
-# ============================================================
+
 #  PATIENT INFO
-# ============================================================
+
 
 class PatientInfoWindow:
     def __init__(self, parent):
@@ -323,9 +320,9 @@ BMR: {patient.calculate_bmr():.2f} calories
             messagebox.showerror("Error", "Invalid ID!")
 
 
-# ============================================================
+
 #  DELETE PATIENT
-# ============================================================
+
 
 class DeletePatientWindow:
     def __init__(self, parent):
@@ -399,9 +396,9 @@ class DeletePatientWindow:
             messagebox.showerror("Error", "Invalid ID!")
 
 
-# ============================================================
+
 #  RUN APP
-# ============================================================
+
 
 def show_main_menu():
     app = MainMenu()
