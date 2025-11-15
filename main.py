@@ -5,6 +5,8 @@
 import tkinter as tk
 root = tk.Tk()
 
+root.title('Unesc Saúde')
+root.geometry('400x400')
 root.mainloop()
 
 import view.menu as menu
