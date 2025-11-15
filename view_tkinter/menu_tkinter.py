@@ -63,7 +63,7 @@ class MainMenu:
     def __init__(self):
         self.root = tk.Tk()
         self.root.title("Sistema de Pacientes - UNESC")
-        self.root.geometry("600x500")
+        self.root.state('zoomed')
 
         setup_styles()
         self.setup_ui()
