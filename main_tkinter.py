@@ -18,5 +18,4 @@ def main():
 if __name__ == '__main__':
     main()
 
-
-#No GPT fica fácil
+#Boy na Boate
