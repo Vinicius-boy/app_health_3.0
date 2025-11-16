@@ -41,13 +41,16 @@ def setup_styles():
         "Blue.TButton",
         foreground="white",
         background="#1976d2",
+        borderwidth=0,          
+        highlightthickness=0,
         padding=8,
         font=("Arial", 11, "bold")
     )
 
     style.map(
         "Blue.TButton",
-        background=[("active", "#0d47a1")]
+        background=[("active", "#0d47a1")],
+        relief=[("pressed", "flat"), ("active", "flat")]
     )
 
     style.configure("Title.TLabel",
@@ -153,8 +156,15 @@ class CheckInWindow:
             row = ttk.Frame(frame)
             row.pack(pady=5, fill=tk.X, padx=20)
             ttk.Label(row, text=label, width=20).pack(side=tk.LEFT)
-            ttk.Entry(row, textvariable=var, width=20).pack(side=tk.LEFT)
-
+            tk.Entry(row,
+                textvariable=var,
+                width=25,
+                relief="flat",
+                highlightthickness=1,
+                highlightbackground="#cccccc",
+                highlightcolor="#1976d2"
+            ).pack(side=tk.LEFT, ipady=3)
+        
         btn_frame = ttk.Frame(frame)
         btn_frame.pack(pady=25)
 
