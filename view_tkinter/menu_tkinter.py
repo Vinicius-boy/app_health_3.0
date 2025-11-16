@@ -140,7 +140,8 @@ class CheckInWindow:
         frame.update_idletasks()
         create_gradient(frame)
 
-        ttk.Label(frame, text="CHECK-IN PATIENT", style="Title.TLabel").pack(pady=10)
+        tk.Label(frame, text="CHECK-IN PATIENT", font=("Arial", 17, "bold"),
+        fg="#0d47a1", bg=None).pack(pady=10)
 
         self.name_var = tk.StringVar()
         self.birthdate_var = tk.StringVar()
