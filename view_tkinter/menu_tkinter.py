@@ -1,8 +1,10 @@
 import tkinter as tk
 from tkinter import ttk, messagebox
 import patient_database
-from controller.patient_class import Patient
-from datetime import datetime
+import customtkinter as ctk
+from PIL import Image, ImageTk, ImageDraw
+
+
 
 class MainMenu:
     def __init__(self):
@@ -11,16 +13,22 @@ class MainMenu:
         self.root.geometry("600x500")
         self.setup_ui()
     
+        
+
     def setup_ui(self):
         # Frame principal
         main_frame = ttk.Frame(self.root, padding="20")
         main_frame.pack(fill=tk.BOTH, expand=True)
         
+
         # Título
+
         title_label = ttk.Label(main_frame, text="-----------( MENU )------------", 
                                font=('Arial', 14, 'bold'))
         title_label.pack(pady=10)
+
         
+
         # Botões do menu
         buttons = [
             ("1 - Check-in patient", self.check_in_patient),
@@ -34,6 +42,7 @@ class MainMenu:
             btn = ttk.Button(main_frame, text=text, command=command, width=30)
             btn.pack(pady=5)
     
+
     def check_in_patient(self):
         CheckInWindow(self.root)
     
@@ -63,7 +72,8 @@ class CheckInWindow:
     def setup_form(self):
         main_frame = ttk.Frame(self.window, padding="20")
         main_frame.pack(fill=tk.BOTH, expand=True)
-        
+
+
         ttk.Label(main_frame, text="-----------( CHECK-IN PATIENT )------------", 
                  font=('Arial', 12, 'bold')).pack(pady=10)
         
@@ -335,3 +345,5 @@ class DeletePatientWindow:
 def show_main_menu():
     app = MainMenu()
     app.run()
+    
+    
