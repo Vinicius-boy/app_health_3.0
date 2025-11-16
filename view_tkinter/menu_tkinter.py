@@ -168,7 +168,6 @@ class CheckInWindow:
                 highlightthickness=1,
                 highlightbackground="#cccccc",
                 highlightcolor="#1976d2",
-                bg="white"
             ).pack(side=tk.LEFT, ipady=3)
         
         btn_frame = tk.Frame(frame, bg="#ffffff")
