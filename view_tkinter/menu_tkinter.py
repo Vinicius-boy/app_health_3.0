@@ -58,7 +58,7 @@ def setup_styles():
     style.configure("Title.TLabel",
                     font=("Arial", 17, "bold"),
                     foreground="#0d47a1",
-                    background="")
+                    background="#ffffff")
 
 
 #  MENU PRINCIPAL
