@@ -174,10 +174,10 @@ class CheckInWindow:
         btn_frame.pack(pady=25)
 
 
-        tk.Button(btn_frame, text="Save", style="Blue.TButton",
+        ttk.Button(btn_frame, text="Save", style="Blue.TButton",
                    command=self.save_patient).pack(side=tk.LEFT, padx=10)
 
-        tk.Button(btn_frame, text="Cancel", style="Blue.TButton",
+        ttk.Button(btn_frame, text="Cancel", style="Blue.TButton",
                    command=self.window.destroy).pack(side=tk.LEFT, padx=10)
 
     def save_patient(self):
