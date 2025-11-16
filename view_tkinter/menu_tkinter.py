@@ -27,7 +27,7 @@ def create_gradient(frame, color1="#bbdefb", color2="#ffffff"):
         color = f"#{r:04x}{g:04x}{b:04x}"
         canvas.create_line(0, i, width, i, fill=color)
 
-    canvas.lower('all')
+    canvas.lower()
 
 
 
@@ -136,6 +136,7 @@ class CheckInWindow:
         frame = tk.Frame(self.window)
         frame.pack(fill=tk.BOTH, expand=True)
 
+        frame.update_idletasks()
         create_gradient(frame)
 
         ttk.Label(frame, text="CHECK-IN PATIENT", style="Title.TLabel").pack(pady=10)
