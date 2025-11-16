@@ -168,8 +168,9 @@ class CheckInWindow:
                 highlightcolor="#1976d2"
             ).pack(side=tk.LEFT, ipady=3)
         
-        btn_frame = ttk.Frame(frame)
+        btn_frame = tk.Frame(frame, bg="#ffffff")
         btn_frame.pack(pady=25)
+
 
         ttk.Button(btn_frame, text="Save", style="Blue.TButton",
                    command=self.save_patient).pack(side=tk.LEFT, padx=10)
