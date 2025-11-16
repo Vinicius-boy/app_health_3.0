@@ -80,7 +80,8 @@ class MainMenu:
 
         create_gradient(main_frame)
 
-        title = ttk.Label(main_frame, text="MENU PRINCIPAL", style="Title.TLabel")
+        title = tk.Label(main_frame, text="MENU PRINCIPAL",  font=("Arial", 17, "bold"),
+        fg="#0d47a1", bg=None)
         title.pack(pady=20)
 
         buttons = [
