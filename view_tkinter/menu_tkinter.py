@@ -182,27 +182,29 @@ class CheckInWindow:
             from controller.bridge import catch_name, catch_birthdate, catch_gender, catch_height, catch_weight
             from patient_database import create_patient
 
-            #import builtins
-            #original_input = builtins.input
+            import builtins
+            original_input = builtins.input
 
-            #inputs = [
-                #self.name_var.get(),
-                #self.birthdate_var.get(),
-                #self.gender_var.get(),
-                #self.height_var.get(),
-                #self.weight_var.get()
-            #]
+            inputs = [
+                self.name_var.get(),
+                self.birthdate_var.get(),
+                self.gender_var.get(),
+                self.height_var.get(),
+                self.weight_var.get()
+            ]
 
-            #it = iter(inputs)
-            #builtins.input = lambda prompt="": next(it)
+            it = iter(inputs)
+            builtins.input = lambda prompt="": next(it)
 
-            name = catch_name(self.name_var.get())
-            birth = catch_birthdate(self.birthdate_var.get())
-            gender = catch_gender(self.gender_var.get())
-            height = catch_height(self.height_var.get())
-            weight = catch_weight(self.weight_var.get())
+            name = catch_name()
+            birth = catch_birthdate()
+            gender = catch_gender()
+            height = catch_height()
+            weight = catch_weight()
 
-            patient_id = create_patient(name, birth, gender, height, weight)
+            builtins.input = original_input
+
+            patient_id = create_patient(name, birth, height, weight, gender)
 
             messagebox.showinfo("Success", f"Patient registered!\nID: {patient_id}")
             self.window.destroy()
