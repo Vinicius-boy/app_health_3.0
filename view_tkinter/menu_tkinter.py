@@ -1,10 +1,8 @@
 import tkinter as tk
 from tkinter import ttk, messagebox
 import patient_database
-import customtkinter as ctk
-from PIL import Image, ImageTk, ImageDraw
-
-
+from controller.patient_class import Patient
+from datetime import datetime
 
 class MainMenu:
     def __init__(self):
@@ -13,23 +11,17 @@ class MainMenu:
         self.root.geometry("600x500")
         self.setup_ui()
     
-        
-
     def setup_ui(self):
-        # Frame principal
+        # Main frame
         main_frame = ttk.Frame(self.root, padding="20")
         main_frame.pack(fill=tk.BOTH, expand=True)
         
-
-        # Título
-
+        # Title
         title_label = ttk.Label(main_frame, text="-----------( MENU )------------", 
                                font=('Arial', 14, 'bold'))
         title_label.pack(pady=10)
-
         
-
-        # Botões do menu
+        # menu buttons
         buttons = [
             ("1 - Check-in patient", self.check_in_patient),
             ("2 - List of patients", self.list_patients),
@@ -42,7 +34,6 @@ class MainMenu:
             btn = ttk.Button(main_frame, text=text, command=command, width=30)
             btn.pack(pady=5)
     
-
     def check_in_patient(self):
         CheckInWindow(self.root)
     
@@ -72,12 +63,11 @@ class CheckInWindow:
     def setup_form(self):
         main_frame = ttk.Frame(self.window, padding="20")
         main_frame.pack(fill=tk.BOTH, expand=True)
-
-
+        
         ttk.Label(main_frame, text="-----------( CHECK-IN PATIENT )------------", 
                  font=('Arial', 12, 'bold')).pack(pady=10)
         
-        # Campos do formulário
+        # form fields
         self.name_var = tk.StringVar()
         self.birthdate_var = tk.StringVar()
         self.gender_var = tk.StringVar()
@@ -98,7 +88,7 @@ class CheckInWindow:
             ttk.Label(frame, text=label, width=20).pack(side=tk.LEFT)
             ttk.Entry(frame, textvariable=var, width=20).pack(side=tk.LEFT, fill=tk.X, expand=True)
         
-        # Botões
+        # Buttons
         btn_frame = ttk.Frame(main_frame)
         btn_frame.pack(pady=20)
         
@@ -107,15 +97,12 @@ class CheckInWindow:
     
     def save_patient(self):
         try:
-            # Usando as funções ORIGINAIS do seu código
             from controller.bridge import catch_name, catch_birthdate, catch_gender, catch_height, catch_weight
             from patient_database import create_patient
             
-            # Simulando as entradas do usuário
             import builtins
             original_input = builtins.input
             
-            # Configura as respostas para as funções originais
             inputs = [
                 self.name_var.get(),
                 self.birthdate_var.get(),
@@ -127,20 +114,17 @@ class CheckInWindow:
             input_iterator = iter(inputs)
             builtins.input = lambda prompt="": next(input_iterator)
             
-            # Chama as funções ORIGINAIS do seu sistema
             name = catch_name()
             birthdate = catch_birthdate()
             gender = catch_gender()
             height = catch_height()
             weight = catch_weight()
             
-            # Restaura input original
             builtins.input = original_input
             
-            # Salva no banco usando função ORIGINAL
             patient_id = create_patient(name, birthdate, height, weight, gender)
             
-            # Mostra confirmação
+    
             messagebox.showinfo("Success", 
                               f"Patient successfully checked-in!\nPatient ID: {patient_id}\nName: {name}")
             self.window.destroy()
@@ -163,7 +147,7 @@ class ListPatientsWindow:
         ttk.Label(main_frame, text="-----------( LIST OF PATIENTS )------------", 
                  font=('Arial', 12, 'bold')).pack(pady=10)
         
-        # Treeview para lista de pacientes
+
         tree_frame = ttk.Frame(main_frame)
         tree_frame.pack(fill=tk.BOTH, expand=True, pady=10)
         
@@ -180,14 +164,12 @@ class ListPatientsWindow:
         
         self.tree.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
         scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
-        
-        # Carrega os dados
+
         self.load_patients()
         
         ttk.Button(main_frame, text="Close", command=self.window.destroy).pack(pady=10)
     
     def load_patients(self):
-        # Usa função ORIGINAL para listar pacientes
         patients = patient_database.list_all_patients()
         
         if not patients:
@@ -217,7 +199,7 @@ class PatientInfoWindow:
         ttk.Label(main_frame, text="-----------( INFORMATION OF THE PATIENTS )------------", 
                  font=('Arial', 12, 'bold')).pack(pady=10)
         
-        # Frame para entrada de ID
+
         id_frame = ttk.Frame(main_frame)
         id_frame.pack(fill=tk.X, pady=10)
         
@@ -226,7 +208,7 @@ class PatientInfoWindow:
         ttk.Entry(id_frame, textvariable=self.id_var, width=10).pack(side=tk.LEFT, padx=5)
         ttk.Button(id_frame, text="Search", command=self.search_patient).pack(side=tk.LEFT, padx=5)
         
-        # Área de informações
+  
         self.info_text = tk.Text(main_frame, height=15, width=50)
         self.info_text.pack(fill=tk.BOTH, expand=True, pady=10)
         
@@ -235,13 +217,13 @@ class PatientInfoWindow:
     def search_patient(self):
         try:
             patient_id = int(self.id_var.get())
-            # Usa função ORIGINAL para buscar paciente
+      
             patient = patient_database.get_patient_by_id(patient_id)
             
             self.info_text.delete(1.0, tk.END)
             
             if patient:
-                # Usa método ORIGINAL para display
+             
                 cmi_value = patient.calculate_cmi()
                 classification = patient.cmi_classification()
                 
@@ -281,7 +263,7 @@ class DeletePatientWindow:
         ttk.Label(main_frame, text="-----------( DELETE PATIENT )------------", 
                  font=('Arial', 12, 'bold')).pack(pady=10)
         
-        # Frame para entrada de ID
+
         id_frame = ttk.Frame(main_frame)
         id_frame.pack(fill=tk.X, pady=10)
         
@@ -290,7 +272,7 @@ class DeletePatientWindow:
         ttk.Entry(id_frame, textvariable=self.id_var, width=10).pack(side=tk.LEFT, padx=5)
         ttk.Button(id_frame, text="Delete", command=self.delete_patient).pack(side=tk.LEFT, padx=5)
         
-        # Lista de pacientes
+
         tree_frame = ttk.Frame(main_frame)
         tree_frame.pack(fill=tk.BOTH, expand=True, pady=10)
         
@@ -325,15 +307,15 @@ class DeletePatientWindow:
         try:
             patient_id = int(self.id_var.get())
             
-            # Confirmação
+
             confirm = messagebox.askyesno("Confirm", 
                                         f"Are you sure you want to delete patient {patient_id}?")
             
             if confirm:
-                # Usa função ORIGINAL para deletar
+    
                 if patient_database.delete_patient(patient_id):
                     messagebox.showinfo("Success", "Patient has been successfully deleted!")
-                    self.load_patients()  # Recarrega a lista
+                    self.load_patients() 
                 else:
                     messagebox.showerror("Error", "Patient not found!")
                     
@@ -345,5 +327,3 @@ class DeletePatientWindow:
 def show_main_menu():
     app = MainMenu()
     app.run()
-    
-    
