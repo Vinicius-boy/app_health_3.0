@@ -170,7 +170,7 @@ class CheckInWindow:
                 highlightcolor="#1976d2",
             ).pack(side=tk.LEFT, ipady=3)
         
-        btn_frame = tk.Frame(frame, bg="#ffffff")
+        btn_frame = tk.Frame(frame)
         btn_frame.pack(pady=25)
 
 
