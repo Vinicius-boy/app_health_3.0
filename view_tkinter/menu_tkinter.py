@@ -42,7 +42,9 @@ def setup_styles():
         foreground="white",
         background="#1976d2",
         borderwidth=0,          
+        focusthickness=0,
         highlightthickness=0,
+        relief="flat",
         padding=8,
         font=("Arial", 11, "bold")
     )
@@ -56,7 +58,7 @@ def setup_styles():
     style.configure("Title.TLabel",
                     font=("Arial", 17, "bold"),
                     foreground="#0d47a1",
-                    background="#ffffff")
+                    background="")
 
 
 #  MENU PRINCIPAL
@@ -155,7 +157,7 @@ class CheckInWindow:
         for label, var in fields:
             row = ttk.Frame(frame)
             row.pack(pady=5, fill=tk.X, padx=20)
-            ttk.Label(row, text=label, width=20).pack(side=tk.LEFT)
+            ttk.Label(row, text=label, width=25).pack(side=tk.LEFT)
             tk.Entry(row,
                 textvariable=var,
                 width=25,
