@@ -27,7 +27,7 @@ def create_gradient(frame, color1="#bbdefb", color2="#ffffff"):
         color = f"#{r:04x}{g:04x}{b:04x}"
         canvas.create_line(0, i, width, i, fill=color)
 
-    canvas.lower()
+    canvas.lower("all")
 
 
 
