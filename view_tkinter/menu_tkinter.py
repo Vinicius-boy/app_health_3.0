@@ -158,7 +158,7 @@ class CheckInWindow:
         ]
 
         for label, var in fields:
-            row = ttk.Frame(frame)
+            row = ttk.Frame(frame, bg="#ffffff")
             row.pack(pady=5, fill=tk.X, padx=20)
             tk.Label(row, text=label, width=25).pack(side=tk.LEFT)
             tk.Entry(row,
@@ -167,7 +167,8 @@ class CheckInWindow:
                 relief="flat",
                 highlightthickness=1,
                 highlightbackground="#cccccc",
-                highlightcolor="#1976d2"
+                highlightcolor="#1976d2",
+                bg="white"
             ).pack(side=tk.LEFT, ipady=3)
         
         btn_frame = tk.Frame(frame, bg="#ffffff")
