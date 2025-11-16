@@ -160,8 +160,7 @@ class CheckInWindow:
         for label, var in fields:
             row = ttk.Frame(frame)
             row.pack(pady=5, fill=tk.X, padx=20)
-            tk.Label(row, text=label, width=25, font=("Arial", 11),
-            fg="#0d47a1", bg=None ).pack(side=tk.LEFT)
+            tk.Label(row, text=label, width=25).pack(side=tk.LEFT)
             tk.Entry(row,
                 textvariable=var,
                 width=25,
