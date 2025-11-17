@@ -288,7 +288,7 @@ class PatientInfoWindow:
 
         create_gradient(frame)
 
-        ttk.Label(frame, text="PATIENT INFORMATION", style="Title.TLabel").pack(pady=15)
+        tk.Label(frame, text="PATIENT INFORMATION", font=("Arial", 20, "bold"), foreground="#0d47a1", background=None).pack(pady=15)
 
         id_frame = ttk.Frame(frame)
         id_frame.pack(pady=10)
