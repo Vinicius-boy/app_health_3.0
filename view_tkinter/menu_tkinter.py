@@ -356,14 +356,14 @@ class DeletePatientWindow:
 
         create_gradient(frame)
 
-        ttk.Label(frame, text="DELETE PATIENT", style="Title.TLabel").pack(pady=15)
+        tk.Label(frame, text="DELETE PATIENT", font=("Arial", 20, "bold"), foreground="#0d47a1", background=None).pack(pady=15)
 
-        id_frame = ttk.Frame(frame)
+        id_frame = tk.Frame(frame, bg=frame["bg"])
         id_frame.pack(pady=10)
 
-        ttk.Label(id_frame, text="Patient ID:").pack(side=tk.LEFT)
+        tk.Label(id_frame, text="Patient ID:", bg=frame["bg"]).pack(side=tk.LEFT)
         self.id_var = tk.StringVar()
-        ttk.Entry(id_frame, textvariable=self.id_var, width=10).pack(side=tk.LEFT, padx=5)
+        tk.Entry(id_frame, textvariable=self.id_var, width=10).pack(side=tk.LEFT, padx=5)
 
         ttk.Button(id_frame, text="Delete",
                    style="Blue.TButton",
