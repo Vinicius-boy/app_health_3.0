@@ -376,8 +376,8 @@ class DeletePatientWindow:
         self.tree = ttk.Treeview(tree_frame, columns=columns, show="headings")
 
         for col in columns:
-            self.tree.heading(col, text=col)
-            self.tree.column(col, width=150)
+            self.tree.heading(col, text=col, anchor="center")
+            self.tree.column(col, width=150, anchor="center")
 
         scrollbar = ttk.Scrollbar(tree_frame, orient=tk.VERTICAL, command=self.tree.yview)
         self.tree.configure(yscrollcommand=scrollbar.set)
