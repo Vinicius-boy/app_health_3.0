@@ -158,9 +158,9 @@ class CheckInWindow:
         ]
 
         for label, var in fields:
-            row = ttk.Frame(frame)
+            row = ttk.Frame(frame, bg="#ffffff" )
             row.pack(pady=5, fill=tk.X, padx=20)
-            tk.Label(row, text=label, width=25).pack(side=tk.LEFT)
+            tk.Label(row, text=label, width=25, bg="#ffffff").pack(side=tk.LEFT)
             tk.Entry(row,
                 textvariable=var,
                 width=25,
