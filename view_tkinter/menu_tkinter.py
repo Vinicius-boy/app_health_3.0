@@ -236,7 +236,7 @@ class ListPatientsWindow:
 
         create_gradient(frame)
 
-        ttk.Label(frame, text="LIST OF PATIENTS", style="Title.TLabel").pack(pady=15)
+        tk.Label(frame, text="LIST OF PATIENTS", font=("Arial", 20, "bold"), foreground="#0d47a1", background=None).pack(pady=15)
 
         tree_frame = ttk.Frame(frame)
         tree_frame.pack(fill=tk.BOTH, expand=True, padx=20)
@@ -245,8 +245,8 @@ class ListPatientsWindow:
         self.tree = ttk.Treeview(tree_frame, columns=columns, show="headings")
 
         for col in columns:
-            self.tree.heading(col, text=col)
-            self.tree.column(col, width=130)
+            self.tree.heading(col, text=col, anchor="center")
+            self.tree.column(col, width=130, anchor="center")
 
         scrollbar = ttk.Scrollbar(tree_frame, orient=tk.VERTICAL, command=self.tree.yview)
         self.tree.configure(yscrollcommand=scrollbar.set)
